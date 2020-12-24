@@ -1,0 +1,69 @@
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 65px;
+    background-color: #22282a;
+    transition: top 0.5s ease-out;
+    overflow: hidden;
+    user-select: none;
+    z-index: 5;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: #ccc;
+    font-family: 'Raleway';
+    font-size: 1.7rem;
+    letter-spacing: 1.1px;
+}
+
+.navbar-brand strong {
+    font-family: 'Raleway';
+    color: #ccc;
+}
+
+.navbar-brand img {
+    margin-left: 5px;
+    width: 42px;
+    height: auto;
+    object-fit: contain;
+}
+
+.search-bar {
+    width: 180px;
+    height: auto;
+    background-color: transparent;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px 40px;
+    color: #7e8f97;
+    font-family: 'Raleway';
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    caret-color: #7e8f97;
+    border: none;
+    border-radius: 25px;
+    background: #fff url('https://www.freepnglogos.com/uploads/search-png/search-icon-clip-art-clkerm-vector-clip-art-online-22.png') no-repeat;
+    background-size: 0.9rem;
+    background-position: 150px 50%;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: #aab6bb;
+}

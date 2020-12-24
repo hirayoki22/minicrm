@@ -1,0 +1,76 @@
+<div *ngIf="!loaded" class="load-icon"></div>
+
+<div 
+*ngIf="loaded && contacts.length > 0" 
+class="contacts-container"
+[ngClass]="onViewModeChange()">
+    <div class="table-header">
+        <div class="row">BASIC INFO</div>
+        <div class="row">COMPANY</div>
+        <div class="row">PHONE</div>
+        <div class="row">CREATION DATE</div>
+        <div class="nav-btns">
+            <button type="button" class="btn btn-clear">
+                <i class="fas fa-caret-left"></i>
+            </button>
+            <button type="button" class="btn btn-clear">
+                <i class="fas fa-caret-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div 
+    *ngFor="let contact of contacts" 
+    class="contact" 
+    [class.new-contact]="contact.isNew"
+    [class.selected-contact]="contact.editMenu">
+        <div class="column basic-info">
+            <div class="avatar-container">
+                <img *ngIf="contact.avatar" [src]="contact.avatar" [alt]="contact.firstname" draggable="false">
+
+                <div 
+                *ngIf="!contact.avatar" 
+                class="default-avatar" 
+                [style.background-color]="contact.defaultAvatar">
+                    {{ contact.initials }}
+                </div>
+            </div>
+            <div>
+                <a href="#" class="contact-name">
+                    {{ contact.firstname }} {{ contact.lastname }}
+                </a>
+                <a 
+                *ngIf="contact.contact.email"
+                href="#" 
+                class="contact-email">
+                    {{ contact.contact.email }}
+                </a>
+            </div>
+            <span class="delimiter" [class.delimiter-alt]="contact.editMenu"></span>
+        </div>       
+        <div class="column company">
+            {{ contact.company }}
+            <span class="delimiter" [class.delimiter-alt]="contact.editMenu"></span>
+        </div>
+        <div class="column phone">
+            {{ contact.contact.phone }}
+            <span class="delimiter" [class.delimiter-alt]="contact.editMenu"></span>
+        </div>
+        <div class="column created-date">
+            {{ contact.createdDate | date:'MMM d y' }}
+            <span class="delimiter" [class.delimiter-alt]="contact.editMenu"></span>
+        </div>
+
+        <i (click)="showEditMenu(contact)" 
+        class="edit-btn material-icons"
+        [class.edit-btn-active]="contact.editMenu">
+            &#xe5d3;
+            <ul *ngIf="contact.editMenu" class="edit-menu">
+                <li (click)="editMenuClick(option.action, contact)" *ngFor="let option of editMenu">
+                    <i class="material-icons" [innerHTML]="option.icon"></i>
+                    {{ option.text }}
+                </li>
+            </ul>
+        </i>
+    </div>
+</div>

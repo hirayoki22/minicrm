@@ -1,0 +1,32 @@
+<div (click)="showSortMenu = !showSortMenu" class="sort-btn contact-sort">
+    <span class="sort-btn" title="Sort Contact" [textContent]="!sortOption ? 'Sort ' : 'Sorted by: '"></span>
+    <strong class="sort-btn">
+        <span class="sort-btn"> {{ sortOption }} </span>
+        <i class="sort-btn fas" [ngClass]="{'fa-angle-down': !showSortMenu, 'fa-angle-up': showSortMenu}"></i>
+    </strong>    
+    
+    <ul *ngIf="showSortMenu" class="sort-menu">
+        <li 
+        *ngFor="let option of sortOptions"
+        (click)="onClick(option)"
+        [class.selected-choice]="option.selected">
+            {{ option.name }}
+            <i 
+            *ngIf="option.selected"
+            class="fas"
+            [ngClass]="{
+                'fa-sort-alpha-down-alt': (option.name == 'First Name' || 
+                option.name == 'Last Name' || option.name == 'Company' ||
+                option.name == 'Email Address') && !option.asc, 
+
+                'fa-sort-alpha-down': (option.name == 'First Name' || 
+                option.name == 'Last Name' || option.name == 'Company' ||
+                option.name == 'Email Address') && option.asc,
+
+                'fa-sort-amount-down-alt': option.name == 'Creation Date' && option.asc,
+                'fa-sort-amount-down': option.name == 'Creation Date' && !option.asc
+            }"
+            [title]="option.asc ? 'Ascending' : 'Descending'"></i>
+        </li>
+    </ul>
+</div>

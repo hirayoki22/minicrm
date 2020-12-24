@@ -1,0 +1,127 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" *ngIf="showForm" class="custom-form">
+    <h3 class="form-title">Client details</h3>
+    <div class="form-group">
+        <label for="firstname">First name</label>
+        <input 
+            type="text"
+            name="firstname"
+            ngModel
+            [(ngModel)]="contact.firstname"
+            #firstname="ngModel"
+            placeholder="First name"
+            required
+            minlength="2"
+            pattern="[A-zÀ-ú]{2,}"
+            [class.is-invalid]="!firstname.valid && firstname.touched"
+        >
+        <div *ngIf="firstname.touched">
+            <div [hidden]="!firstname.errors" class="invalid-feedback">
+                Invalid first name
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastname">Last name</label>
+        <input 
+            type="text"
+            name="lastname"
+            ngModel
+            [(ngModel)]="contact.lastname"
+            #lastname="ngModel"
+            placeholder="Last name"
+            required
+            minlength="2"
+            pattern="[A-zÀ-ú]{2,}"
+            [class.is-invalid]="!lastname.valid && lastname.touched"
+        >
+        <div *ngIf="lastname.touched">
+            <div [hidden]="!lastname.errors" class="invalid-feedback">
+                Invalid last name
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="company">Company</label>
+        <input 
+            type="text"
+            name="company"
+            ngModel
+            [(ngModel)]="contact.company"
+            #company="ngModel"
+            placeholder="Company"
+        >
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <input 
+            type="text" 
+            name="phone"
+            ngModel
+            [(ngModel)]="contact.contact.phone"
+            #phone="ngModel"
+            placeholder="XXX-XXX-XXXX"
+            required
+            pattern="^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
+            [class.is-invalid]="!phone.valid && phone.touched"
+        >
+        <div *ngIf=phone.touched>
+            <div [hidden]="!phone.errors" class="invalid-feedback">
+                Invalid phone format
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="show-more" (click)="showHiddenFields = !showHiddenFields">
+        Show More
+        <i class="fas" [ngClass]="{'fa-chevron-down': !showHiddenFields, 'fa-chevron-up': showHiddenFields}"></i>
+    </button>
+
+    <section *ngIf="showHiddenFields" class="additional">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+                type="text" 
+                name="email"
+                ngModel
+                [(ngModel)]="contact.contact.email"
+                #email="ngModel"
+                placeholder="Eg: email@domain.com"
+                pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                [class.is-invalid]="email.errors"
+            >
+            <div *ngIf=email.touched>
+                <div [hidden]="!email.errors" class="invalid-feedback">
+                    Invalid email format
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="avatar">Contact Photo</label>
+            <input 
+                name="avatar" 
+                ngModel 
+                [(ngModel)]="contact.avatar"
+                placeholder="URL"
+            >
+        </div>
+    </section>
+
+    <div class="form-group">
+        <button 
+            *ngIf="!isUpdating"
+            type="submit"
+            class="btn btn-dark submit-btn"  
+            [disabled]="!contactForm.form.valid"
+        >
+            Save and Add
+        </button>
+        <button 
+            *ngIf="isUpdating"
+            type="submit"
+            class="btn btn-dark submit-btn"  
+            [disabled]="!contactForm.form.valid"
+        >
+            Update Contact
+        </button>
+    </div>
+</form>

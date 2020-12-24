@@ -1,0 +1,29 @@
+.add-btn {
+    margin-top: 1.5rem;
+}
+
+.show-more {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: none;
+    color: #666;
+    font-size: 0.8rem;
+    border: none;
+    background-color: transparent;
+    user-select: none;
+}
+
+.show-more .fas {
+    margin-left: 0.2rem;
+    font-size: 0.6rem;
+}
+
+.additional {
+    margin-bottom: 1.5rem;
+}
+
+.submit-btn {
+    min-width: 126.5px;
+}

@@ -1,0 +1,57 @@
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.container-grid .table-header {
+    display: none;
+}
+
+.container-grid .contact {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    padding: 1.5rem;
+    height: 120px;
+}
+
+.container-grid .column {
+    align-items: flex-start;
+}
+
+.container-grid .avatar-container {
+    min-width: 50px;
+    max-width: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    margin-right: 1.5rem;
+}
+
+.container-grid .avatar-container img {
+    height: 50px;
+}
+
+.container-grid .default-avatar {
+    height: 50px;
+    font-size: 1rem;
+}
+
+.container-grid .company, 
+.container-grid .phone, 
+.container-grid .created-date {
+    display: none;
+}
+
+.container-grid .edit-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.container-grid .edit-menu {
+    position: absolute;
+    right: 0;
+    top: 1.5rem;
+}

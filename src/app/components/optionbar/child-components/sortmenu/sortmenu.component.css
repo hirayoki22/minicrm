@@ -1,0 +1,60 @@
+.contact-sort {
+    display: inline-block;
+    color: #7e8f97;
+    font-size: 0.85rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-sort {
+    position: relative;
+}
+
+.contact-sort strong {
+    display: inline-block;
+    color: #555;
+    cursor: pointer;
+}
+
+.contact-sort .fas {
+    margin-left: 0.5rem;
+}
+
+.sort-menu {
+    position: absolute;
+    left: 0;
+    top: 2rem;
+    min-width: 190px;
+    width: fit-content;
+    height: auto;
+    padding: 1.5rem 0;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(77, 77, 77, 0.1),
+    0 30px 40px -20px rgba(77, 77, 77, 0.2);
+    animation: appear 0.3s ease;
+    overflow: hidden;
+    user-select: none;
+    z-index: 2;
+}
+
+.sort-menu li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 2.1rem;
+    font-size: 0.85rem;
+    color: #444;
+    background-color: #fff;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.sort-menu li:hover {
+    background-color: #f4f8f9;
+}
+
+.selected-choice {
+    color: #27abf5 !important;
+    background-color: #e4e9eb !important;
+}

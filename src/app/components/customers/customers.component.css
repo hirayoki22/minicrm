@@ -1,0 +1,220 @@
+@keyframes appear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes newContact {
+    from { box-shadow: 0 0 0 3px #97d9ff; }
+    to { box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.1); }
+}
+
+.load-icon {
+    width: 70px;
+    height: 70px;
+    margin: 5rem auto 0;
+    background: url('http://thainews.prd.go.th/assets/public_images/loading/lg.ring-loading-gif.gif') center center/cover no-repeat;
+    user-select: none;
+    animation: appear 0.6s ease-in-out;
+}
+
+.contacts-container {
+    width: 100%;
+    margin: auto;
+    animation: appear 0.2s ease-in;
+    background-color: #f4f8f9;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 1.35fr repeat(3, 0.99fr) 0.1fr;
+    width: 100%;
+    padding: 1rem;
+    padding-right: 0;
+    margin-bottom: 0.5rem;
+    user-select: none;
+    overflow: hidden;
+}
+
+.table-header .row {
+    display: flex;
+    align-items: center;
+    color: #7e8f97;
+    font-size: 0.75rem; 
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.table-header .nav-btns {
+    display: flex;
+}
+
+.table-header .nav-btns
+button {
+    width: 28px;
+    height: 28px;
+    padding: none;
+    padding: 8px;
+}
+
+.contact {
+    display: grid;
+    grid-template-columns: 1.3fr repeat(3, 1fr) 0.1fr;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    padding: 0.5rem 1.2rem;
+    margin-bottom: 0.5rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.1);
+    transition: height 0.2s ease;
+}
+
+.contact > div {
+    color: #444;
+    font-size: 0.90rem;
+    white-space: nowrap;
+}
+
+.selected-contact {
+    background-color: #cbeeff;
+}
+
+.new-contact {
+    animation: newContact 3s ease;
+}
+
+.column {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.delimiter {
+    position: absolute;
+    right: 0;
+    top: -0.8rem;
+    width: 40px;
+    height: 70px;   
+    background-image: linear-gradient(to left, #fff 60%, transparent);
+}
+
+.delimiter-alt {
+    background-image: linear-gradient(to left, #cbeeff 60%, transparent) !important;
+}
+
+.basic-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.avatar-container {
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    user-select: none;
+    overflow: hidden;
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 40px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.default-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: #ffbb0e;
+}
+
+.basic-info .contact-name {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #333;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.basic-info .contact-email {
+    display: block;
+    color: #9fa5a5;
+    font-size: 0.75rem;
+    text-transform: lowercase;
+    white-space: nowrap;
+}
+
+.edit-btn {
+    position: relative;
+    padding: 0;
+    color: #9ca9b0;
+    font-size: 1.35rem;
+    transition: color 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.edit-btn-active {
+    color: #27abf5 !important;
+}
+
+.edit-btn:hover {
+    color: #27abf5;
+}
+
+.edit-menu {
+    position: absolute;
+    right: -1.2rem;
+    top: 1.5rem;
+    min-width: 170px;
+    width: fit-content;
+    height: auto;
+    padding: 1rem 0;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(77, 77, 77, 0.1),
+    0 30px 40px -20px rgba(77, 77, 77, 0.2);
+    animation: appear 0.3s ease;
+    overflow: hidden;
+    user-select: none;
+    z-index: 2;
+}
+
+.edit-menu li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 8px 1.5rem;
+    font-size: 0.85rem;
+    color: #444;
+    background-color: #fff;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.edit-menu li:hover {
+    background-color: #f4f8f9;
+}
+
+.edit-menu li .material-icons {
+    margin: 0;
+    margin-right: 1rem;
+    color: #7e8f97;
+}

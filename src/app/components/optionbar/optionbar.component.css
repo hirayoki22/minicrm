@@ -1,0 +1,43 @@
+.option-bar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    padding: 2rem 0;
+    user-select: none;
+}
+
+.column {
+    display: flex;
+    justify-self: start;
+    align-items: center;
+}
+
+.column:first-child .row:not(:last-child) {
+    margin-right: 3rem;
+}
+
+.column .title {
+    color: #27abf5;
+    font-family: 'Raleway';
+    font-size: 1.7rem;
+    font-weight: 300;
+}
+
+.column:last-child {
+    justify-self: flex-end;
+}
+
+.column:last-child 
+button:not(:last-child) {
+    margin-right: 0.5rem;
+}
+
+.add-update-contact {
+    min-width: 134.06px; 
+}
+
+.add-update-contact .material-icons,
+.filter-btn .material-icons {
+    margin-left: 0.5rem;
+}

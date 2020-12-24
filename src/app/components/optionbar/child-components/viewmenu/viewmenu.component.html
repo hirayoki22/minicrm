@@ -1,0 +1,20 @@
+<div class="view-btn-ele" style="position: relative">
+    <button 
+    (click)="showViewMenu = !showViewMenu" 
+    type="button"
+    title="View Options"
+    class="btn btn-clear view-btn view-btn-ele" 
+    [class.selected]="showViewMenu">
+        <i class="view-btn-ele material-icons" [innerHTML]="viewOption"></i>
+    </button>
+
+    <ul *ngIf="showViewMenu" class="view-menu">
+        <li
+        *ngFor="let option of viewOptions" 
+        (click)="changeView(option)"
+        [class.selected-choice]="option.selected">
+            <i class="material-icons" [innerHTML]="option.icon"></i>
+            {{ option.name }} View
+        </li>
+    </ul>
+</div>

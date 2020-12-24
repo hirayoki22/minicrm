@@ -1,0 +1,39 @@
+<section class="option-bar">
+    <div class="column">
+        <div class="row">
+            <h2 class="title">Contacts</h2>
+        </div>
+
+        <div class="row">
+            <app-contact-counter></app-contact-counter>
+        </div>
+
+        <div class="row">
+            <app-sortmenu></app-sortmenu>
+        </div>
+    </div>
+
+    <div class="column">
+        <app-viewmenu></app-viewmenu>
+
+        <button type="button" class="btn btn-clear filter-btn" title="Filters">
+            Filter
+            <i class="material-icons">&#xe152;</i>            
+        </button>
+
+        <button 
+            (click)="onClick()"
+            type="button"
+            class="btn btn-info add-update-contact"
+            [disabled]="isUpdating"
+        >
+            <span [textContent]="!showForm ? 'Add Contact' : 'Discard'"></span>
+            <i class="material-icons" [innerHTML]="showForm ? '&#xe611;' : '&#xe7fe;'"></i>            
+        </button>
+    </div>
+</section>
+<app-customers-form 
+    [showForm]="showForm" 
+    [isUpdating]="isUpdating"
+    (updateFinished)="isUpdating = false; showForm = false"
+></app-customers-form>

@@ -1,0 +1,59 @@
+.view-btn {
+    position: relative;
+    margin-right: 0.5rem;
+    padding: 0;
+    padding: 8px;
+    transition: background-color 0.2s ease, 
+    color 0.2s ease;
+}
+
+.view-menu {
+    position: absolute;
+    right: 0.5rem;
+    top: 2.65rem;
+    min-width: 190px;
+    width: fit-content;
+    height: auto;
+    padding: 1rem 0;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(77, 77, 77, 0.1),
+    0 30px 40px -20px rgba(77, 77, 77, 0.2);
+    animation: appear 0.3s ease;
+    overflow: hidden;
+    user-select: none;
+    z-index: 2;
+}
+
+.view-menu li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 8px 1.5rem;
+    color: #444;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    background-color: #fff;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.view-menu li:hover {
+    background-color: #f4f8f9;
+}
+
+.view-menu li .material-icons {
+    margin: 0;
+    margin-right: 1rem;
+    color: #7e8f97;
+}
+
+.selected-choice {
+    color: #27abf5 !important;
+    background-color: #e4e9eb !important;
+}
+
+.selected-choice .material-icons {
+    color: #27abf5 !important;
+}
