@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CustomersService } from './services/customers.service'
@@ -26,7 +27,8 @@ import { ViewmenuComponent } from './components/optionbar/child-components/viewm
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [CustomersService],
   bootstrap: [AppComponent]

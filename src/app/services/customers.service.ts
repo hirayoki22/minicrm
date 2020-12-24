@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, BehaviorSubject} from 'rxjs';
+import { Observable, BehaviorSubject} from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Contact } from '../models/contact';
 
@@ -31,23 +32,13 @@ export class CustomersService {
   private contactView = new BehaviorSubject<string>('List');
   viewMode = this.contactView.asObservable();
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
     if (localStorage.getItem('Contacts') == null) {
       this.contacts = [];
     } else {
       this.contacts = JSON.parse(localStorage.getItem('Contacts'));
     }
-    this.setDefaultContacts();
     this.getContactsTotal();
-  }
-
-  setDefaultContacts = async () => {
-    let res = await fetch('./api/contacts.json');
-    let contacts = await res.json();
-
-    if(localStorage.getItem('Contacts') == null) {
-      localStorage.setItem('Contacts', JSON.stringify(contacts));
-    } 
   }
 
   changeContactView(mode: string) {
@@ -55,7 +46,7 @@ export class CustomersService {
   }
 
   getContacts(): Observable<Contact[]> {
-    return of(this.contacts);
+    return this.http.get<Contact[]>('./api/contacts.json');
   }
 
   getContactsTotal() {
