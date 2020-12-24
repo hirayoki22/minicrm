@@ -37,12 +37,12 @@ export class CustomersService {
     } else {
       this.contacts = JSON.parse(localStorage.getItem('Contacts'));
     }
-
+    this.setDefaultContacts();
     this.getContactsTotal();
   }
 
   setDefaultContacts = async () => {
-    let res = await fetch('./api/contact.json');
+    let res = await fetch('./api/contacts.json');
     let contacts = await res.json();
 
     if(localStorage.getItem('Contacts') == null) {
