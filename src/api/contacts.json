@@ -1,0 +1,78 @@
+[
+  {
+    "id": "c92efc57-ca09-43bd-ba1b-e7e33dca5822",
+    "firstname": "Marco",
+    "lastname": "DeFrange",
+    "initials": "MD",
+    "company": "Professional Singer",
+    "avatar": "assets/img/stock2.jpg",
+    "contact": {
+      "phone": "(454) 918-4000",
+      "email": "defrange.marco330@naturalvision.net"
+    },
+    "createdDate": "2020-02-24T01:34:05.746Z",
+    "lastModified": "2020-02-24T17:35:54.959Z"
+  }, {
+    "id": "c92efc57-ca09-96dw-yui9-e7e33dca5822",
+    "firstname": "Mark",
+    "lastname": "Ruffalo",
+    "initials": "MR",
+    "company": "Cascade Center BPO",
+    "avatar": "assets/img/stock7.jpg",
+    "contact": {
+      "phone": "(877) 294-2121"
+    },
+    "createdDate": "2019-08-01T14:25:05.000Z",
+    "lastModified": "2020-02-24T07:05:45.048Z"
+  }, {
+    "id": "e2370291-3099-4a1d-b082-64b9f603e1f7",
+    "firstname": "Raul",
+    "lastname": "Pena",
+    "initials": "RP",
+    "company": "Slender Figure",
+    "avatar": "assets/img/stock5.jpg",
+    "contact": {
+      "phone": "(829) 779-9966",
+      "email": "myemail@slenderfigure.com"
+    },
+    "createdDate": "2020-02-22T00:12:30.044Z",
+    "lastModified": "2020-02-24T02:28:21.265Z"
+  }, {
+    "id": "66d4df87-0f82-4765-9e4e-fea1eda816fa",
+    "firstname": "Sophia",
+    "lastname": "Veldanova",
+    "initials": "SV",
+    "company": "Paris Magazine",
+    "avatar": "assets/img/stock1.jpg",
+    "contact": {
+      "phone": "(365) 788-4566",
+      "email": "sophie.veldanova1605@parismagazine.com"
+    },
+    "createdDate": "2020-02-23T02:34:47.557Z"
+  }, {
+    "id": "33c6df87-0f82-4765-9e4e-fea1eda816fa",
+    "firstname": "Yumi",
+    "lastname": "Takeuchi",
+    "initials": "YT",
+    "company": "Yumi Productions",
+    "avatar": "assets/img/stock6.jpg",
+    "contact": {
+      "phone": "(943) 455-9966",
+      "email": "yumiproductions@sora.com"
+    },
+    "createdDate": "2018-07-22T14:25:05.000Z"
+  }, {
+    "id": "33c6df87-0f82-9595-9e4e-mbn8pda796fa",
+    "firstname": "Andrea",
+    "lastname": "Hesten",
+    "initials": "AH",
+    "company": "Envelop Solutions CO",
+    "avatar": "assets/img/stock3.jpg",
+    "contact": {
+      "phone": "(202) 634-1573",
+      "email": "andrew.hesten0065@gmail.com"
+    },
+    "createdDate": "2016-05-13T22:03:55.000Z",
+    "lastModified": "2020-02-24T00:13:35.309Z"
+  }
+]
