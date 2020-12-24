@@ -28,7 +28,9 @@ export class CustomersComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactService.getContacts().subscribe(contacts => {
+      this.contactService.getContactsTotal(contacts.length);
       this.contacts = contacts;
+      this.contactService.contacts = contacts;
       this.loaded = true;
     });
 

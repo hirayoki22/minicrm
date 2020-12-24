@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject} from 'rxjs';
+import { Observable, of, BehaviorSubject} from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Contact } from '../models/contact';
@@ -8,7 +8,7 @@ import { Contact } from '../models/contact';
   providedIn: 'root'
 })
 export class CustomersService {
-  contacts: Contact[];
+  contacts: Contact[] = [];
   contact: Contact = {
     id: null,
     firstname: null,
@@ -33,12 +33,7 @@ export class CustomersService {
   viewMode = this.contactView.asObservable();
 
   constructor(private http: HttpClient) { 
-    if (localStorage.getItem('Contacts') == null) {
-      this.contacts = [];
-    } else {
-      this.contacts = JSON.parse(localStorage.getItem('Contacts'));
-    }
-    this.getContactsTotal();
+    
   }
 
   changeContactView(mode: string) {
@@ -46,11 +41,16 @@ export class CustomersService {
   }
 
   getContacts(): Observable<Contact[]> {
-    return this.http.get<Contact[]>('./api/contacts.json');
+    if (!localStorage.getItem('Contacts')) {
+      return this.http.get<Contact[]>('./api/contacts.json');
+    } else {
+      this.contacts = <Contact[]>JSON.parse(localStorage.getItem('Contacts'));
+      return of(this.contacts);
+    }
   }
 
-  getContactsTotal() {
-    this.totalContact.next(this.contacts.length);
+  getContactsTotal(total: number) {
+    this.totalContact.next(total);
   }
 
   addContact(contact: Contact) {
@@ -61,7 +61,7 @@ export class CustomersService {
       localStorage.setItem('Contacts', JSON.stringify(this.contacts));
     }, 2000);
 
-    this.getContactsTotal();
+    this.getContactsTotal(this.contacts.length);
   }
 
   editContact(contact: Contact) {
@@ -83,7 +83,7 @@ export class CustomersService {
       this.contacts.splice(index, 1);
       localStorage.setItem('Contacts', JSON.stringify(this.contacts));
 
-      this.getContactsTotal();
+      this.getContactsTotal(this.contacts.length);
     }
   }
 
